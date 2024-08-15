@@ -7,7 +7,7 @@ My way to try poses
 1. **[MediaPipe](https://github.com/google/mediapipe)**
    - **描述**：由 Google 提供的跨平台框架，支持人體姿勢、手部和面部追蹤等功能。
    - **優點**：高效、準確，支持多平台（包括 Android、iOS 和 Web）。
-   - **e.g.**：[DEMO](https://mediapipe-studio.webapps.google.com/demo/pose_landmarker?hl=zh-tw)
+   - **e.g.**：[DEMO](https://mediapipe-studio.webapps.google.com/home)
 2. **[PoseNet](https://github.com/tensorflow/tfjs-models/tree/master/posenet)**
    - **描述**：由 Google 提供的深度學習模型，用於實時人體姿勢估計。
    - **優點**：輕量級，適用於移動設備，提供多種預訓練模型。
