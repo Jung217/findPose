@@ -25,8 +25,8 @@ My way to try poses
    - **優點**：提供高精度和實時的姿勢估計。
 
 ## Try
-00. OpenPose : failed (on colab)
-01. MediaPipe : 手掌、手勢、全身辯識
+0. OpenPose : failed (on colab)
+1. MediaPipe : 手掌、手勢、全身辯識
 
 ## Reference
 * STEAM 教育學習網
