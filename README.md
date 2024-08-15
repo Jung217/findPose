@@ -10,7 +10,7 @@ My way to try poses
 2. **[MediaPipe](https://github.com/google/mediapipe)**
    - **描述**：由 Google 提供的跨平台框架，支持人體姿勢、手部和面部追蹤等功能。
    - **優點**：高效、準確，支持多平台（包括 Android、iOS 和 Web）。
-   - **e.g.**:[DEMO](https://mediapipe-studio.webapps.google.com/demo/pose_landmarker?hl=zh-tw)
+   - **e.g.**：[DEMO](https://mediapipe-studio.webapps.google.com/demo/pose_landmarker?hl=zh-tw)
 3. **[HRNet (High-Resolution Network)](https://github.com/HRNet)**
    - **描述**：一個專注於高分辨率特徵學習的姿勢估計模型，能夠提供精確的姿勢估計。
    - **優點**：能夠在高分辨率圖像上進行準確的姿勢估計。
