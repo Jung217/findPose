@@ -1,2 +1,2 @@
 # findPose
-As title.
+My way to try poses
