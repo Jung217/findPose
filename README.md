@@ -24,4 +24,4 @@ My way to try poses
    - **優點**：提供高精度和實時的姿勢估計。
 
 ## Try
-1. OpenPose : failed (on colab)
+0. OpenPose : failed (on colab)
