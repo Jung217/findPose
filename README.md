@@ -40,8 +40,6 @@ My way to try poses
 
 這樣的邏輯確保只有在骨架完整時，才會進行記錄和切割操作，以提高結果的準確性和資料的完整性。
 
-https://github.com/user-attachments/assets/b4a61a4b-341f-4adc-84fb-09ef2ded94e2
-
 ## Reference
 * STEAM 教育學習網
    * [Mediapipe 手掌特徵點偵測](https://steam.oxxostudio.tw/category/python/ai/ai-mediapipe-2023-hand.html)
