@@ -1,8 +1,8 @@
+import os
 import cv2
-import mediapipe as mp
-import math
-import numpy as np
 import csv
+import numpy as np
+import mediapipe as mp
 
 mp_drawing = mp.solutions.drawing_utils
 mp_drawing_styles = mp.solutions.drawing_styles
@@ -23,7 +23,7 @@ def calculate_angle(a, b, c):
     return angle
 
 # 讀取影片
-cap = cv2.VideoCapture("D:/Downloda/t1.mp4")
+cap = cv2.VideoCapture("D:/Downloda/p1.mp4")
 fourcc = cv2.VideoWriter_fourcc(*'mp4v')
 out = cv2.VideoWriter('output_video.mp4', fourcc, 20.0, (int(cap.get(3)), int(cap.get(4))))
 
@@ -86,8 +86,12 @@ with mp_pose.Pose(min_detection_confidence=0.5, min_tracking_confidence=0.5) as 
                 # 切割出人體區域
                 person_img = frame[y_min:y_max, x_min:x_max]
 
+                # 設定保存路徑
+                save_path = './crop'
+                os.makedirs(save_path, exist_ok=True)  # 確保保存路徑存在
+
                 # 保存切割後的圖像
-                cv2.imwrite(f'person_{frame_count}.png', person_img)
+                cv2.imwrite(os.path.join(save_path, f'person_{frame_count}.png'), person_img)
 
                 # 畫出骨架
                 mp_drawing.draw_landmarks(
