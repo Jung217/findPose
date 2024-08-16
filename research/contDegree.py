@@ -46,31 +46,54 @@ with mp_pose.Pose(min_detection_confidence=0.5, min_tracking_confidence=0.5) as 
         if results.pose_landmarks:
             landmarks = results.pose_landmarks.landmark
 
-            # 取得關節角度
-            left_knee_angle = calculate_angle(
-                [landmarks[mp_pose.PoseLandmark.LEFT_HIP.value].x, landmarks[mp_pose.PoseLandmark.LEFT_HIP.value].y],
-                [landmarks[mp_pose.PoseLandmark.LEFT_KNEE.value].x, landmarks[mp_pose.PoseLandmark.LEFT_KNEE.value].y],
-                [landmarks[mp_pose.PoseLandmark.LEFT_ANKLE.value].x, landmarks[mp_pose.PoseLandmark.LEFT_ANKLE.value].y]
-            )
-            right_knee_angle = calculate_angle(
-                [landmarks[mp_pose.PoseLandmark.RIGHT_HIP.value].x, landmarks[mp_pose.PoseLandmark.RIGHT_HIP.value].y],
-                [landmarks[mp_pose.PoseLandmark.RIGHT_KNEE.value].x, landmarks[mp_pose.PoseLandmark.RIGHT_KNEE.value].y],
-                [landmarks[mp_pose.PoseLandmark.RIGHT_ANKLE.value].x, landmarks[mp_pose.PoseLandmark.RIGHT_ANKLE.value].y]
-            )
+            # 確認骨架是否完整
+            if all([landmark.visibility > 0.5 for landmark in landmarks]):
+                # 取得關節角度
+                left_knee_angle = calculate_angle(
+                    [landmarks[mp_pose.PoseLandmark.LEFT_HIP.value].x, landmarks[mp_pose.PoseLandmark.LEFT_HIP.value].y],
+                    [landmarks[mp_pose.PoseLandmark.LEFT_KNEE.value].x, landmarks[mp_pose.PoseLandmark.LEFT_KNEE.value].y],
+                    [landmarks[mp_pose.PoseLandmark.LEFT_ANKLE.value].x, landmarks[mp_pose.PoseLandmark.LEFT_ANKLE.value].y]
+                )
+                right_knee_angle = calculate_angle(
+                    [landmarks[mp_pose.PoseLandmark.RIGHT_HIP.value].x, landmarks[mp_pose.PoseLandmark.RIGHT_HIP.value].y],
+                    [landmarks[mp_pose.PoseLandmark.RIGHT_KNEE.value].x, landmarks[mp_pose.PoseLandmark.RIGHT_KNEE.value].y],
+                    [landmarks[mp_pose.PoseLandmark.RIGHT_ANKLE.value].x, landmarks[mp_pose.PoseLandmark.RIGHT_ANKLE.value].y]
+                )
 
-            # 取得腰部（髖關節）的 XYZ 座標
-            waist_x = (landmarks[mp_pose.PoseLandmark.LEFT_HIP.value].x + landmarks[mp_pose.PoseLandmark.RIGHT_HIP.value].x) / 2
-            waist_y = (landmarks[mp_pose.PoseLandmark.LEFT_HIP.value].y + landmarks[mp_pose.PoseLandmark.RIGHT_HIP.value].y) / 2
-            waist_z = (landmarks[mp_pose.PoseLandmark.LEFT_HIP.value].z + landmarks[mp_pose.PoseLandmark.RIGHT_HIP.value].z) / 2
+                # 取得腰部（髖關節）的 XYZ 座標
+                waist_x = (landmarks[mp_pose.PoseLandmark.LEFT_HIP.value].x + landmarks[mp_pose.PoseLandmark.RIGHT_HIP.value].x) / 2
+                waist_y = (landmarks[mp_pose.PoseLandmark.LEFT_HIP.value].y + landmarks[mp_pose.PoseLandmark.RIGHT_HIP.value].y) / 2
+                waist_z = (landmarks[mp_pose.PoseLandmark.LEFT_HIP.value].z + landmarks[mp_pose.PoseLandmark.RIGHT_HIP.value].z) / 2
 
-            # 記錄到 CSV 檔案
-            csv_writer.writerow([frame_count, left_knee_angle, right_knee_angle, waist_x, waist_y, waist_z])
+                # 記錄到 CSV 檔案
+                csv_writer.writerow([frame_count, left_knee_angle, right_knee_angle, waist_x, waist_y, waist_z])
 
-            # 畫出骨架
-            mp_drawing.draw_landmarks(
-                frame, results.pose_landmarks, mp_pose.POSE_CONNECTIONS,
-                landmark_drawing_spec=mp_drawing_styles.get_default_pose_landmarks_style()
-            )
+                # 計算人體的邊界框
+                x_coords = [landmark.x for landmark in landmarks]
+                y_coords = [landmark.y for landmark in landmarks]
+
+                x_min = int(min(x_coords) * frame.shape[1])
+                x_max = int(max(x_coords) * frame.shape[1])
+                y_min = int(min(y_coords) * frame.shape[0])
+                y_max = int(max(y_coords) * frame.shape[0])
+
+                # 確保邊界框在影像範圍內
+                x_min = max(x_min, 0)
+                y_min = max(y_min, 0)
+                x_max = min(x_max, frame.shape[1])
+                y_max = min(y_max, frame.shape[0])
+
+                # 切割出人體區域
+                person_img = frame[y_min:y_max, x_min:x_max]
+
+                # 保存切割後的圖像
+                cv2.imwrite(f'person_{frame_count}.png', person_img)
+
+                # 畫出骨架
+                mp_drawing.draw_landmarks(
+                    frame, results.pose_landmarks, mp_pose.POSE_CONNECTIONS,
+                    landmark_drawing_spec=mp_drawing_styles.get_default_pose_landmarks_style()
+                )
 
         # 寫入影片
         out.write(frame)
