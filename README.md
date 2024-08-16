@@ -27,6 +27,7 @@ My way to try poses
 ## Try
 0. OpenPose : failed (on colab)
 1. MediaPipe : 手掌、手勢、全身辯識
+   * `pip install tensorflow==2.17.0 mediapipe==0.10.14`
 
 ## Research
 * [countAngle.py](research/countAngle.py)
