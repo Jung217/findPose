@@ -37,9 +37,10 @@ My way to try poses
 4. **確認骨架完整性**：檢查所有的骨架點是否可見，只有當所有點的可見度大於0.5時才進行記錄和計算。
 5. **計算人體面積並切割**：計算出人體的邊界框，將人體從影像中切割出來並保存為 PNG 圖像。
 6. **保留骨架繪製功能**：在確認骨架完整後，仍然會在影像中繪製骨架。
-<video src='research/output_video.mp4' controls>
 
 這樣的邏輯確保只有在骨架完整時，才會進行記錄和切割操作，以提高結果的準確性和資料的完整性。
+
+https://github.com/user-attachments/assets/b4a61a4b-341f-4adc-84fb-09ef2ded94e2
 
 ## Reference
 * STEAM 教育學習網
