@@ -29,7 +29,7 @@ My way to try poses
 1. MediaPipe : 手掌、手勢、全身辯識
 
 ## Research
-* [contDegree.py](research\contDegree.py)
+* [contDegree.py](research/contDegree.py)
 1. **新增腰部 (髖關節) 的 XYZ 座標記錄**：計算並記錄腰部位置，包含 X、Y、Z 三個座標。
 2. **骨架繪製**：使用 mp_drawing 將骨架畫在影像上。
 3. **CSV 檔案**：將每一幀的膝蓋角度和腰部座標記錄到 CSV 檔案中。
