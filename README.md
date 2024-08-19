@@ -11,6 +11,7 @@ My way to try poses
 2. **[PoseNet](https://github.com/tensorflow/tfjs-models/tree/master/posenet)**
    - **描述**：由 Google 提供的深度學習模型，用於實時人體姿勢估計。
    - **優點**：輕量級，適用於移動設備，提供多種預訓練模型。
+   - **e.g.**：[DEMO](https://storage.googleapis.com/tfjs-models/demos/pose-detection-upload-video/index.html?model=posenet)
 3. **[HRNet (High-Resolution Network)](https://github.com/HRNet)**
    - **描述**：一個專注於高分辨率特徵學習的姿勢估計模型，能夠提供精確的姿勢估計。
    - **優點**：能夠在高分辨率圖像上進行準確的姿勢估計。
@@ -25,12 +26,16 @@ My way to try poses
    - **優點**：提供高精度和實時的姿勢估計。
 
 ## Try
-0. OpenPose : failed (on colab)
+0. OpenPose : failed (can't even run on colab)
 1. MediaPipe : 手掌、手勢、全身辯識
-   * `pip install tensorflow==2.17.0 mediapipe==0.10.14`
+   * 執行前 : `pip install tensorflow==2.17.0 mediapipe==0.10.14`
+   * 問題 : 側面偵測不出來
+2. PoseNet
+   * 優點 : 側面能偵測
+   * 問題 : 正面腳踝會交叉打結
 
 ## Research
-* [countAngle.py](research/countAngle.py)
+* [01 mediapipe/research/countAngle.py](research/countAngle.py)
 1. **新增腰部 (髖關節) 的 XYZ 座標記錄**：計算並記錄腰部位置，包含 X、Y、Z 三個座標。
 2. **骨架繪製**：使用 mp_drawing 將骨架畫在影像上。
 3. **CSV 檔案**：將每一幀的膝蓋角度和腰部座標記錄到 CSV 檔案中。
