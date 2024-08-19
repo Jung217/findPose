@@ -28,14 +28,15 @@ My way to try poses
 
 
 ## Try
-0. OpenPose : failed (can't even run on colab)
+0. OpenPose : **failed (can't even run on colab)**
 1. MediaPipe : 手掌、手勢、全身辯識
    * 問題 : 側面偵測不出來
 2. PoseNet
    * 優點 : 側面能偵測
    * 問題 : 正面腳踝會交叉打結
-3. HRNet : 
-
+3. HRNet
+   * 優點 : 正、側面都可以偵測，且不易打結
+   * 缺點 : 有時候有點不穩定，運算速度慢(可能須高算力)
 
 ## Research
 * [01 mediapipe/research/countAngle.py](research/countAngle.py)
