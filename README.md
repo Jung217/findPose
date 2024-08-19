@@ -25,14 +25,16 @@ My way to try poses
    - **描述**：用於實時人體姿勢估計的開源工具，基於 PIFu 和 PIFPaf 模型。
    - **優點**：提供高精度和實時的姿勢估計。
 
+
 ## Try
 0. OpenPose : failed (can't even run on colab)
 1. MediaPipe : 手掌、手勢、全身辯識
-   * 執行前 : `pip install tensorflow==2.17.0 mediapipe==0.10.14`
    * 問題 : 側面偵測不出來
 2. PoseNet
    * 優點 : 側面能偵測
    * 問題 : 正面腳踝會交叉打結
+3. HRNet : 
+
 
 ## Research
 * [01 mediapipe/research/countAngle.py](research/countAngle.py)
