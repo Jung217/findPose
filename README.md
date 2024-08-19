@@ -15,6 +15,7 @@ My way to try poses
 3. **[HRNet (High-Resolution Network)](https://github.com/HRNet)**
    - **描述**：一個專注於高分辨率特徵學習的姿勢估計模型，能夠提供精確的姿勢估計。
    - **優點**：能夠在高分辨率圖像上進行準確的姿勢估計。
+   - **補充** : [deep-high-resolution-net.pytorch](https://github.com/leoxiaobin/deep-high-resolution-net.pytorch/tree/master)
 4. **[AlphaPose](https://github.com/MVIG-SJTU/AlphaPose)**
    - **描述**：一個高效的多人姿勢估計工具，支持高精度的姿勢檢測。
    - **優點**：提供多種模型和高效的檢測能力。
