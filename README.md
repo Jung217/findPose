@@ -48,7 +48,7 @@ My way to try poses
    6. **保留骨架繪製功能**：在確認骨架完整後，仍然會在影像中繪製骨架。
 
 ## Considering
-> 大小腿比值造成的角度差 ?
+> 大小腿比值造成的角度差?
 
 ## Reference
 * STEAM 教育學習網
