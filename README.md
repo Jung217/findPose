@@ -47,6 +47,9 @@ My way to try poses
    5. **計算人體面積並切割**：計算出人體的邊界框，將人體從影像中切割出來並保存為 PNG 圖像。
    6. **保留骨架繪製功能**：在確認骨架完整後，仍然會在影像中繪製骨架。
 
+## Considering
+> 大小腿比值造成的角度差 ?
+
 ## Reference
 * STEAM 教育學習網
    * [Mediapipe 手掌特徵點偵測](https://steam.oxxostudio.tw/category/python/ai/ai-mediapipe-2023-hand.html)
