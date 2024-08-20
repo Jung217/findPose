@@ -19,6 +19,7 @@ My way to try poses
 4. **[OpenPifPaf](https://github.com/vita-epfl/openpifpaf)**
    - **描述**：用於實時人體姿勢估計的開源工具，基於 PIFu 和 PIFPaf 模型。
    - **特點**：提供高精度和實時的姿勢估計。
+   - **e.g.**：[Official website](https://openpifpaf.github.io/intro.html)、[Offical colab demo](https://colab.research.google.com/drive/1H8T4ZE6wc0A9xJE4oGnhgHpUpAH5HL7W#scrollTo=LZsdwMvI_2cu)、[DEMO](https://vitademo.epfl.ch/movements/)
 5. **[AlphaPose](https://github.com/MVIG-SJTU/AlphaPose)**
    - **描述**：一個高效的多人姿勢估計工具，支持高精度的姿勢檢測。
    - **特點**：提供多種模型和高效的檢測能力。
@@ -32,10 +33,10 @@ My way to try poses
    * 問題 : 正面腳踝會交叉打結
 3. HRNet
    * 優點 : 正、側面都可以偵測，且不打結
-   * 缺點 : 有時候有點不穩定，運算速度慢(FPS 3.X)
+   * 缺點 : 有時候有點不穩定(節外生枝，腳踝消失)
 4. OpenPifPaf
-   * 優點 : 正、側面都可以偵測，速度快
-   * 缺點 : 好像有一點點問題(P2 result)
+   * 優點 : 正、側面都可以偵測
+   * 缺點 : 有一點點不穩定(腳踝消失)
 5. AlphaPose : 安裝麻煩，未嘗試
 ## Research
 * [01 mediapipe/research/countAngle.py](research/countAngle.py)
