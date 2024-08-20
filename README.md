@@ -16,16 +16,12 @@ My way to try poses
    - **描述**：一個專注於高分辨率特徵學習的姿勢估計模型，能夠提供精確的姿勢估計。
    - **特點**：能夠在高分辨率圖像上進行準確的姿勢估計。
    - **補充** : [deep-high-resolution-net.pytorch](https://github.com/leoxiaobin/deep-high-resolution-net.pytorch/tree/master)
-4. **[AlphaPose](https://github.com/MVIG-SJTU/AlphaPose)**
-   - **描述**：一個高效的多人姿勢估計工具，支持高精度的姿勢檢測。
-   - **特點**：提供多種模型和高效的檢測能力。
-5. **[DeepCut / DeepLabCut](https://github.com/DeepLabCut/DeepLabCut)**
-   - **描述**：專注於動物姿勢估計，適合於動物行為分析。
-   - **特點**：針對動物姿勢進行高度專業化的研究和應用。
-6. **[OpenPifPaf](https://github.com/vita-epfl/openpifpaf)**
+4. **[OpenPifPaf](https://github.com/vita-epfl/openpifpaf)**
    - **描述**：用於實時人體姿勢估計的開源工具，基於 PIFu 和 PIFPaf 模型。
    - **特點**：提供高精度和實時的姿勢估計。
-
+5. **[AlphaPose](https://github.com/MVIG-SJTU/AlphaPose)**
+   - **描述**：一個高效的多人姿勢估計工具，支持高精度的姿勢檢測。
+   - **特點**：提供多種模型和高效的檢測能力。
 
 ## Try
 0. OpenPose : **failed (can't even run on colab)**
@@ -35,9 +31,12 @@ My way to try poses
    * 優點 : 側面能偵測
    * 問題 : 正面腳踝會交叉打結
 3. HRNet
-   * 優點 : 正、側面都可以偵測，且不易打結
-   * 缺點 : 有時候有點不穩定，運算速度慢(可能須高算力)
-
+   * 優點 : 正、側面都可以偵測，且不打結
+   * 缺點 : 有時候有點不穩定，運算速度慢(FPS 3.X)
+4. OpenPifPaf
+   * 優點 : 正、側面都可以偵測，速度快
+   * 缺點 : 好像有一點點問題(P2 result)
+5. AlphaPose : 安裝麻煩，未嘗試
 ## Research
 * [01 mediapipe/research/countAngle.py](research/countAngle.py)
    1. **新增腰部 (髖關節) 的 XYZ 座標記錄**：計算並記錄腰部位置，包含 X、Y、Z 三個座標。
