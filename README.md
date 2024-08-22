@@ -39,7 +39,7 @@ My way to try poses
    * 缺點 : 有一點點不穩定(腳踝消失)
 5. AlphaPose : 安裝麻煩，未嘗試
 ## Research
-* [01 mediapipe/research/countAngle.py](research/countAngle.py)
+* [01 mediapipe/research/countAngle.py](https://github.com/Jung217/findPose/blob/main/01%20mediapipe/research/countAngle.py)
    1. **新增腰部 (髖關節) 的 XYZ 座標記錄**：計算並記錄腰部位置，包含 X、Y、Z 三個座標。
    2. **骨架繪製**：使用 mp_drawing 將骨架畫在影像上。
    3. **CSV 檔案**：將每一幀的膝蓋角度和腰部座標記錄到 CSV 檔案中。
