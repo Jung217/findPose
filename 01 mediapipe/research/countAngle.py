@@ -23,7 +23,7 @@ def calculate_angle(a, b, c):
     return angle
 
 # 讀取影片
-cap = cv2.VideoCapture("D:/Downloda/ptest.mp4")
+cap = cv2.VideoCapture("../../data/run_2timesSpeed.mp4")
 fourcc = cv2.VideoWriter_fourcc(*'mp4v')
 out = cv2.VideoWriter('output_video.mp4', fourcc, 20.0, (int(cap.get(3)), int(cap.get(4))))
 
